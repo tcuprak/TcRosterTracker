@@ -33,17 +33,28 @@
 			<table>
 				<thead>
 					<tr>
+						<th></th>
+
+						<g:each in="${gameInstanceList}" status="gameIndex" var="nextGame">
+
+
+							<th><g:formatDate format="MMMM dd" date="${nextGame.date}" />
+								</th>
+
+						</g:each>
+					</tr>
+					<tr>
 						<g:sortableColumn property="id"
 							title="${message(code: 'player.id.label', default: 'Player')}" />
 
 						<g:each in="${gameInstanceList}" status="gameIndex" var="nextGame">
 
 
-							<th><g:formatDate format="MMMM dd" date="${nextGame.date}" />
-								at ${nextGame.startTime}</th>
+							<th>${nextGame.startTime}</th>
 
 						</g:each>
 					</tr>
+					
 
 				</thead>
 				<tbody>
